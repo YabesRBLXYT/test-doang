@@ -59,32 +59,45 @@
 
         <div class="download-section">
             <h3>Roblox</h3>
-            <button onclick="downloadFile('https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=7351957&key=6e19ec37e1dce855829cecb0a1880c18d82008c0')">Download Roblox</button>
+            <button id="roblox-button">Loading...</button>
         </div>
 
         <div class="download-section">
             <h3>Auto Clicker</h3>
-            <button onclick="downloadFile('https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=6828556&key=fdb16d5639fab3703d043a26b2b9d4f86230823d&forcebaseapk=true')">Download Auto Clicker</button>
+            <button id="autoClicker-button">Loading...</button>
         </div>
 
         <div class="download-section">
             <h3>Rotation</h3>
-            <button onclick="downloadFile('https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=4973365&key=ed14714bd90aed4310453f4552358824a2149561')">Download Rotation</button>
+            <button id="rotation-button">Loading...</button>
         </div>
 
         <div class="download-section">
             <h3>Config Auto Clicker</h3>
-            <button onclick="downloadFile('https://github.com/YabesRBLXYT/test-doang/releases/download/Ad/roblox.txt')">Download Config Auto Clicker</button>
+            <button id="configAutoClicker-button">Loading...</button>
         </div>
     </div>
 
     <script>
-        function downloadFile(url) {
-            // Ganti 'url' dengan link file download kamu Desu
-            window.location.href = url;
-        }
+        // Fungsi untuk load link dari file JSON Desu
+        fetch('downloads.json')
+            .then(response => response.json())
+            .then(data => {
+                // Set setiap tombol dengan link yang sesuai dari JSON Desu
+                document.getElementById('roblox-button').innerText = 'Download Roblox';
+                document.getElementById('roblox-button').onclick = () => window.location.href = data.roblox;
+
+                document.getElementById('autoClicker-button').innerText = 'Download Auto Clicker';
+                document.getElementById('autoClicker-button').onclick = () => window.location.href = data.autoClicker;
+
+                document.getElementById('rotation-button').innerText = 'Download Rotation';
+                document.getElementById('rotation-button').onclick = () => window.location.href = data.rotation;
+
+                document.getElementById('configAutoClicker-button').innerText = 'Download Config Auto Clicker';
+                document.getElementById('configAutoClicker-button').onclick = () => window.location.href = data.configAutoClicker;
+            })
+            .catch(error => console.error('Error loading JSON:', error));
     </script>
 
 </body>
-  </html>
-  
+</html>
