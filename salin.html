@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open APKPure and Copy Text</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+
+    #copyButton {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      background-color: black; /* Tombol warna hitam */
+      outline: none;
+    }
+  </style>
+  <script>
+    function openApkPureAndCopy() {
+      const text = "Roblox"; // Ganti dengan teks yang ingin disalin
+      const tempInput = document.createElement("input");
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+      
+      // Membuka aplikasi APKPure
+      window.location.href = "apkpure://";
+    }
+  </script>
+</head>
+<body>
+  <button id="copyButton" onclick="openApkPureAndCopy()"></button>
+</body>
+</html>
+
