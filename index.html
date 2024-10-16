@@ -58,8 +58,13 @@
         <h1>Download Tools for Roblox Cloud</h1>
 
         <div class="download-section">
-            <h3>Roblox</h3>
-            <button id="roblox-button">Loading...</button>
+            <h3>Roblox (step 1)</h3>
+            <button id="roblox1-button">Loading...</button>
+        </div>
+        
+        <div class="download-section">
+            <h3>Roblox (step 2)</h3>
+            <button id="roblox2-button">Loading...</button>
         </div>
 
         <div class="download-section">
@@ -84,8 +89,11 @@
             .then(response => response.json())
             .then(data => {
                 // Set setiap tombol dengan link yang sesuai dari JSON Desu
-                document.getElementById('roblox-button').innerText = 'Download Roblox';
-                document.getElementById('roblox-button').onclick = () => window.location.href = data.roblox;
+                document.getElementById('roblox1-button').innerText = 'Download Roblox';
+                document.getElementById('roblox1-button').onclick = () => window.location.href = data.roblox (step 1);
+
+                document.getElementById('roblox2-button').innerText = 'Download Roblox';
+                document.getElementById('roblox2-button').onclick = () => window.location.href = data.roblox (step 2);
 
                 document.getElementById('autoClicker-button').innerText = 'Download Auto Clicker';
                 document.getElementById('autoClicker-button').onclick = () => window.location.href = data.autoClicker;
