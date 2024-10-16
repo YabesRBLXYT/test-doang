@@ -89,11 +89,11 @@
             .then(response => response.json())
             .then(data => {
                 // Set setiap tombol dengan link yang sesuai dari JSON Desu
-                document.getElementById('roblox1-button').innerText = 'Download Roblox';
-                document.getElementById('roblox1-button').onclick = () => window.location.href = data.roblox (step 1);
+                document.getElementById('roblox1-button').innerText = 'Download Roblox 1';
+                document.getElementById('roblox1-button').onclick = () => window.location.href = data.roblox1;
 
-                document.getElementById('roblox2-button').innerText = 'Download Roblox';
-                document.getElementById('roblox2-button').onclick = () => window.location.href = data.roblox (step 2);
+                document.getElementById('roblox2-button').innerText = 'Download Roblox 2';
+                document.getElementById('roblox2-button').onclick = () => window.location.href = data.roblox2;
 
                 document.getElementById('autoClicker-button').innerText = 'Download Auto Clicker';
                 document.getElementById('autoClicker-button').onclick = () => window.location.href = data.autoClicker;
