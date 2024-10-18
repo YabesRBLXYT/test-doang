@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open APKPure and Copy Text</title>
+  <title>Copy Text, Open App, and Redirect</title>
   <style>
     body, html {
       height: 100%;
@@ -24,22 +24,28 @@
     }
   </style>
   <script>
-    function openApkPureAndCopy() {
-      const text = "Roblox"; // Ganti dengan teks yang ingin disalin
+    function performActions() {
+      // Salin teks ke clipboard
+      const text = "Roblox"; // Ganti dengan teks yang diinginkan
       const tempInput = document.createElement("input");
       tempInput.value = text;
       document.body.appendChild(tempInput);
       tempInput.select();
       document.execCommand("copy");
       document.body.removeChild(tempInput);
-      
-      // Membuka aplikasi APKPure
+
+      // Coba buka aplikasi (ganti dengan package name yang sesuai)
       window.location.href = "apkpure://";
+
+      // Tunggu beberapa detik sebelum membuka situs (agar aplikasi sempat terbuka)
+      setTimeout(function() {
+        // Buka situs di tab saat ini
+        window.location.href = "index.html"; // Ganti dengan URL situs yang diinginkan
+      }, 3000); // 3000 ms = 3 detik delay sebelum buka situs
     }
   </script>
 </head>
 <body>
-  <button id="copyButton" onclick="openApkPureAndCopy()"></button>
+  <button id="copyButton" onclick="performActions()"></button>
 </body>
 </html>
-
