@@ -64,7 +64,7 @@
         
         <div class="download-section">
             <h3>Roblox (step 2)</h3>
-            <button id="roblox2-button">Loading...</button>
+            <button id="roblox2-button">Checking for update...</button>
         </div>
 
         <div class="download-section">
@@ -84,16 +84,13 @@
     </div>
 
     <script>
-        // Fungsi untuk load link dari file JSON Desu
+        // Fungsi untuk load link dari file JSON
         fetch('downloads.json')
             .then(response => response.json())
             .then(data => {
-                // Set setiap tombol dengan link yang sesuai dari JSON Desu
+                // Set setiap tombol dengan link yang sesuai dari JSON
                 document.getElementById('roblox1-button').innerText = 'Download Roblox 1';
                 document.getElementById('roblox1-button').onclick = () => window.location.href = data.roblox1;
-
-                document.getElementById('roblox2-button').innerText = 'Download Roblox 2';
-                document.getElementById('roblox2-button').onclick = () => window.location.href = data.roblox2;
 
                 document.getElementById('autoClicker-button').innerText = 'Download Auto Clicker';
                 document.getElementById('autoClicker-button').onclick = () => window.location.href = data.autoClicker;
@@ -103,6 +100,20 @@
 
                 document.getElementById('configAutoClicker-button').innerText = 'Download Config Auto Clicker';
                 document.getElementById('configAutoClicker-button').onclick = () => window.location.href = data.configAutoClicker;
+
+                // Cek update Roblox untuk tombol "Roblox (step 2)"
+                fetch('https://bj-tricks.serv00.net/BJ_Coder-Apis/Mod-APK.php?query=com.roblox.client')
+                    .then(response => response.json())
+                    .then(updateData => {
+                        const roblox2Button = document.getElementById('roblox2-button');
+                        const downloadPath = updateData[0].path;
+                        roblox2Button.innerText = 'Download Roblox 2';
+                        roblox2Button.onclick = () => window.location.href = downloadPath;
+                    })
+                    .catch(error => {
+                        console.error('Error loading Roblox update:', error);
+                        document.getElementById('roblox2-button').innerText = 'Error loading update';
+                    });
             })
             .catch(error => console.error('Error loading JSON:', error));
     </script>
