@@ -81,6 +81,16 @@
             <h3>Config Auto Clicker</h3>
             <button id="configAutoClicker-button">Loading...</button>
         </div>
+
+        <div class="download-section">
+            <h3>Apkpure</h3>
+            <button id="apkpure-button">Loading...</button>
+        </div>
+         
+        <div class="download-section">
+            <h3>Apkpure Roblox</h3>
+            <button id="apkpure-roblox-button">Loading...</button>
+        </div>
     </div>
 
     <script>
@@ -100,6 +110,12 @@
 
                 document.getElementById('configAutoClicker-button').innerText = 'Download Config Auto Clicker';
                 document.getElementById('configAutoClicker-button').onclick = () => window.location.href = data.configAutoClicker;
+                
+                document.getElementById('apkpure-button').innerText = 'Download Apkpure';
+                document.getElementById('apkpure-button').onclick = () => window.location.href = data.apkpure;
+
+                document.getElementById('apkpure-roblox-button').innerText = 'Download Apkpure Roblox';
+                document.getElementById('apkpure-roblox-button').onclick = () => window.location.href = data.apkpure.roblox;
 
                 // Cek update Roblox untuk tombol "Roblox (step 2)"
                 fetch('https://bj-tricks.serv00.net/BJ_Coder-Apis/Mod-APK.php?query=com.roblox.client')
