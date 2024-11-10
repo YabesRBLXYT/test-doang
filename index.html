@@ -58,13 +58,13 @@
         <h1>Download Tools for Roblox Cloud</h1>
 
         <div class="download-section">
-            <h3>ZArchiver</h3>
-            <button id="ZArchiver-button">Loading...</button>
+            <h3>Roblox (step 1)</h3>
+            <button id="roblox1-button">Loading...</button>
         </div>
         
         <div class="download-section">
-            <h3>Roblox</h3>
-            <button id="roblox-button">Checking for update...</button>
+            <h3>Roblox (step 2)</h3>
+            <button id="roblox2-button">Checking for update...</button>
         </div>
 
         <div class="download-section">
@@ -81,16 +81,6 @@
             <h3>Config Auto Clicker</h3>
             <button id="configAutoClicker-button">Loading...</button>
         </div>
-
-        <div class="download-section">
-            <h3>Apkpure</h3>
-            <button id="apkpure-button">Loading...</button>
-        </div>
-         
-        <div class="download-section">
-            <h3>Apkpure Roblox</h3>
-            <button id="apkpureRoblox-button">Loading...</button>
-        </div>
     </div>
 
     <script>
@@ -99,8 +89,8 @@
             .then(response => response.json())
             .then(data => {
                 // Set setiap tombol dengan link yang sesuai dari JSON
-                document.getElementById('ZArchiver-button').innerText = 'Download ZArchiver';
-                document.getElementById('ZArchiver-button').onclick = () => window.location.href = data.zarchiver;
+                document.getElementById('roblox1-button').innerText = 'Download Roblox 1';
+                document.getElementById('roblox1-button').onclick = () => window.location.href = data.roblox1;
 
                 document.getElementById('autoClicker-button').innerText = 'Download Auto Clicker';
                 document.getElementById('autoClicker-button').onclick = () => window.location.href = data.autoClicker;
@@ -110,25 +100,19 @@
 
                 document.getElementById('configAutoClicker-button').innerText = 'Download Config Auto Clicker';
                 document.getElementById('configAutoClicker-button').onclick = () => window.location.href = data.configAutoClicker;
-                
-                document.getElementById('apkpure-button').innerText = 'Download Apkpure';
-                document.getElementById('apkpure-button').onclick = () => window.location.href = data.apkpure;
-
-                document.getElementById('apkpureRoblox-button').innerText = 'Download Apkpure Roblox';
-                document.getElementById('apkpureRoblox-button').onclick = () => window.location.href = data.apkpureRoblox;
 
                 // Cek update Roblox untuk tombol "Roblox (step 2)"
                 fetch('https://bj-tricks.serv00.net/BJ_Coder-Apis/Mod-APK.php?query=com.roblox.client')
                     .then(response => response.json())
                     .then(updateData => {
-                        const roblox2Button = document.getElementById('roblox-button');
+                        const roblox2Button = document.getElementById('roblox2-button');
                         const downloadPath = updateData[0].path;
-                        robloxButton.innerText = 'Download Roblox';
-                        robloxButton.onclick = () => window.location.href = downloadPath;
+                        roblox2Button.innerText = 'Download Roblox 2';
+                        roblox2Button.onclick = () => window.location.href = downloadPath;
                     })
                     .catch(error => {
                         console.error('Error loading Roblox update:', error);
-                        document.getElementById('roblox-button').innerText = 'Error loading update';
+                        document.getElementById('roblox2-button').innerText = 'Error loading update';
                     });
             })
             .catch(error => console.error('Error loading JSON:', error));
