@@ -58,13 +58,13 @@
         <h1>Download Tools for Roblox Cloud</h1>
 
         <div class="download-section">
-            <h3>Roblox (step 1)</h3>
-            <button id="roblox1-button">Loading...</button>
+            <h3>ZArchiver</h3>
+            <button id="ZArchiver-button">Loading...</button>
         </div>
         
         <div class="download-section">
-            <h3>Roblox (step 2)</h3>
-            <button id="roblox2-button">Checking for update...</button>
+            <h3>Roblox</h3>
+            <button id="roblox-button">Checking for update...</button>
         </div>
 
         <div class="download-section">
@@ -99,8 +99,8 @@
             .then(response => response.json())
             .then(data => {
                 // Set setiap tombol dengan link yang sesuai dari JSON
-                document.getElementById('roblox1-button').innerText = 'Download Roblox 1';
-                document.getElementById('roblox1-button').onclick = () => window.location.href = data.roblox1;
+                document.getElementById('zarchiver-button').innerText = 'Download ZArchiver';
+                document.getElementById('zarchiver-button').onclick = () => window.location.href = data.zarchiver;
 
                 document.getElementById('autoClicker-button').innerText = 'Download Auto Clicker';
                 document.getElementById('autoClicker-button').onclick = () => window.location.href = data.autoClicker;
@@ -121,10 +121,10 @@
                 fetch('https://bj-tricks.serv00.net/BJ_Coder-Apis/Mod-APK.php?query=com.roblox.client')
                     .then(response => response.json())
                     .then(updateData => {
-                        const roblox2Button = document.getElementById('roblox2-button');
+                        const roblox2Button = document.getElementById('roblox-button');
                         const downloadPath = updateData[0].path;
-                        roblox2Button.innerText = 'Download Roblox 2';
-                        roblox2Button.onclick = () => window.location.href = downloadPath;
+                        robloxButton.innerText = 'Download Roblox';
+                        robloxButton.onclick = () => window.location.href = downloadPath;
                     })
                     .catch(error => {
                         console.error('Error loading Roblox update:', error);
